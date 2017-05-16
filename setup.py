@@ -9,7 +9,6 @@ License :: OSI Approved :: GNU General Public License (GPL)
 
 import sys
 import os
-import versioneer
 
 from setuptools import setup, find_packages
 from distutils.core import setup
@@ -22,12 +21,14 @@ setup(
     license='http://www.gnu.org/licenses/gpl.html',
     platforms=['Any'],
     install_requires=['PyParsing'],
-    setup_requires=['setuptools-markdown'],
+    setup_requires=[
+        'setuptools-markdown',
+        'setuptools_scm',
+    ],
+    use_scm_version=True,
     description='PyRTF - Rich Text Format Document Generation',
     classifiers=[_f for _f in classifiers.split('\n') if _f],
     keywords=('RTF', 'Rich Text', 'Rich Text Format', 'documentation',
               'reports'),
     long_description_markdown_filename='README.md',
-    packages=find_packages(),
-    version=versioneer.get_version(),
-    cmdclass=versioneer.get_cmdclass())
+    packages=find_packages())
