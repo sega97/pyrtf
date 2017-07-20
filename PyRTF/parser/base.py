@@ -59,7 +59,7 @@ class RTFFile(object):
         fh.close()
         # pass the string data into the parser
         try:
-            parsed = RFTParser.parse(data)
+            parsed = RTFParser.parse(data)
         except ParseException as e:
             msg = "could not parse '%s'[...] : %s"
             raise RTFParseError(msg % (rtfstring[:30], e))
